@@ -1,12 +1,16 @@
-import React from 'react'
-import Home from './pages/Home'
+import React from 'react';
 
-const App = () => {
+import HomePage from './pages/Home'
+
+import Sidebar from 'components/Sidebar'
+
+function App() {
   return (
     <div>
-      <Home />
+      <HomePage />
+      <Sidebar />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
