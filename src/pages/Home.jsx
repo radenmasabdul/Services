@@ -1,7 +1,8 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 import React from "react";
 
-import { getServices } from "redux/stores";
+import { connect } from "react-redux";
+import { fetchServices } from "actions";
 
 import Hero from "components/Hero";
 import ServiceItem from "components/services/ServiceItem";
@@ -12,8 +13,7 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    const services = getServices();
-    this.setState({ services });
+    this.props.dispatch(fetchServices());
   }
 
   renderServices = (services) =>
@@ -22,9 +22,9 @@ class Home extends React.Component {
     ));
 
   render() {
-    const { services } = this.state;
+    const { services } = this.props;
     return (
-      <>
+      <div>
         <Hero />
         <section className="section section-feature-grey is-medium">
           <div className="container">
@@ -41,9 +41,11 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
-      </>
+      </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({ services: state.service.items });
+
+export default connect(mapStateToProps)(Home);
