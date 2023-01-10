@@ -417,9 +417,11 @@ div.nav-item.is-drop:hover .dropContain .dropOut {
     opacity: 1;
 }
 
-div.nav-item.is-drop:hover, div.nav-item.is-drop:hover a, {
+div.nav-item.is-drop:hover {
     border-bottom: 1px solid transparent !important;
-    color: $secondary;
+    div.nav-item.is-drop:hover a {
+        color: $secondary;
+    }
 }
 
 div.nav-item.is-drop:hover .dropContain {
